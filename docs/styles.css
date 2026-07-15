@@ -42,6 +42,15 @@ h1 { margin:0; font-size:clamp(46px,13.5vw,70px); line-height:.91; letter-spacin
 .benefitCard ul { margin:0; padding:0; display:grid; gap:13px; list-style:none; }
 .benefitCard li { display:flex; align-items:center; gap:12px; font-size:13px; font-weight:700; }
 .benefitCard li i { width:24px; height:24px; flex:0 0 24px; display:grid; place-items:center; border-radius:50%; color:#fff; background:var(--green); font-size:10px; font-style:normal; }
+.reviewsButton { width:100%; min-height:76px; margin-top:18px; padding:0 18px; display:grid; grid-template-columns:44px 1fr 28px; align-items:center; gap:12px; border-radius:24px; color:#fff; background:linear-gradient(135deg,#168fce,#2aabee); box-shadow:0 16px 34px rgba(34,158,217,.25); transition:transform .2s ease,box-shadow .2s ease; }
+.reviewsButton:hover { transform:translateY(-3px); box-shadow:0 21px 40px rgba(34,158,217,.34); }
+.reviewsButton:active { transform:scale(.985); }
+.reviewsButton>i { width:44px; height:44px; display:grid; place-items:center; border-radius:15px; background:rgba(255,255,255,.17); font-style:normal; }
+.reviewsButton>i img { width:24px; height:24px; display:block; }
+.reviewsButton>span { min-width:0; display:grid; gap:3px; }
+.reviewsButton small { font-size:8px; font-weight:900; letter-spacing:1.15px; opacity:.76; }
+.reviewsButton strong { font-size:15px; line-height:1.2; }
+.reviewsButton>b { justify-self:end; font-size:19px; }
 .contacts { margin-top:34px; }
 .contacts>p { margin:0 0 12px; color:#6e8178; text-align:center; font-size:8px; font-weight:900; letter-spacing:1.35px; }
 .contactButton { width:100%; min-height:64px; margin-top:9px; padding:0 17px; display:grid; grid-template-columns:38px 1fr 28px; align-items:center; border:1px solid var(--line); border-radius:22px; background:#fff; box-shadow:0 12px 30px rgba(24,72,50,.075); font-size:15px; font-weight:850; touch-action:manipulation; transition:transform .18s ease,box-shadow .18s ease,background .18s ease; }
@@ -68,4 +77,4 @@ footer p { margin:0; text-align:right; }
 @media(orientation:landscape) and (max-height:600px) and (max-width:950px){
   .pageShell { max-width:none; margin:0; border-radius:0; }.topbar { min-height:52px; }.hero { padding-top:20px; display:grid; grid-template-columns:.82fr 1.18fr; gap:18px; }.intro { align-self:center; }.offers { margin-top:0; }.featureGrid { grid-column:1; }.benefitCard { grid-column:2; grid-row:2; }.contacts { grid-column:1/-1; margin-top:8px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }.contacts>p { grid-column:1/-1; margin-bottom:0; }.contactButton { margin:0; min-height:52px; }footer { display:none; }
 }
-@media(prefers-reduced-motion:reduce){ html { scroll-behavior:auto; }.reveal { opacity:1; transform:none; transition:none; }.offerCard,.featureCard,.contactButton { transition:none; } }
+@media(prefers-reduced-motion:reduce){ html { scroll-behavior:auto; }.reveal { opacity:1; transform:none; transition:none; }.offerCard,.featureCard,.reviewsButton,.contactButton { transition:none; } }

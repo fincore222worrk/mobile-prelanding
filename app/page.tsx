@@ -5,6 +5,7 @@ import { useEffect } from "react";
 // Замените заглушки настоящими ссылками, когда они будут готовы.
 const LINKS = {
   telegram: "https://t.me/viktor_emil",
+  reviews: "https://t.me/+h0ymje-qAfsyMzky",
   viber: "https://viber.me/380635861629",
   instagram: "https://www.instagram.com/vanya335e?igsh=cTIzdHl6dGwwZGYw",
 };
@@ -70,6 +71,12 @@ export default function Home() {
             <li><i>✓</i><span>Підтримка без вихідних</span></li>
           </ul>
         </article>
+
+        <a className="reviewsButton reveal" href={LINKS.reviews} target="_blank" rel="noopener noreferrer" aria-label="Переглянути відгуки в Telegram">
+          <i><img src="/icons/telegram.svg" alt="" /></i>
+          <span><small>ВІДГУКИ КЛІЄНТІВ</small><strong>Дивитися в Telegram</strong></span>
+          <b>→</b>
+        </a>
 
         <section className="contacts reveal" aria-labelledby="contact-title">
           <p id="contact-title">ОБЕРІТЬ ЗРУЧНИЙ МЕСЕНДЖЕР</p>
