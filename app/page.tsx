@@ -36,7 +36,6 @@ export default function Home() {
 
       <header className="topbar reveal visible">
         <a className="brand" href="#top" aria-label="На початок">REF<span>+</span></a>
-        <span className="programTag">ПАРТНЕРСЬКА ПРОГРАМА</span>
       </header>
 
       <section className="hero" id="top">
@@ -48,11 +47,11 @@ export default function Home() {
 
         <div className="offers reveal">
           <article className="offerCard mainOffer">
-            <div><span className="bankName">ПУМБ</span><small>реферальна винагорода</small></div>
+            <div><span className="bankName">ПУМБ</span></div>
             <p><strong>2 000</strong><b>₴</b></p>
           </article>
           <article className="offerCard secondOffer">
-            <div><span className="bankName">А-Банк</span><small>реферальна винагорода</small></div>
+            <div><span className="bankName">А-Банк</span></div>
             <p><strong>500</strong><b>₴</b></p>
           </article>
         </div>
@@ -74,9 +73,9 @@ export default function Home() {
 
         <section className="contacts reveal" aria-labelledby="contact-title">
           <p id="contact-title">ОБЕРІТЬ ЗРУЧНИЙ МЕСЕНДЖЕР</p>
-          <a className="contactButton telegram" href={LINKS.telegram} target="_blank" rel="noopener noreferrer"><i>↗</i><span>Telegram</span><b>→</b></a>
-          <a className="contactButton viber" href={LINKS.viber} target="_blank" rel="noopener noreferrer"><i>☎</i><span>Viber</span><b>→</b></a>
-          <a className="contactButton instagram" href={LINKS.instagram} target="_blank" rel="noopener noreferrer"><i>◎</i><span>Instagram</span><b>→</b></a>
+          <a className="contactButton telegram" href={LINKS.telegram} target="_blank" rel="noopener noreferrer"><i><img src="/icons/telegram.svg" alt="" /></i><span>Telegram</span><b>→</b></a>
+          <a className="contactButton viber" href={LINKS.viber} target="_blank" rel="noopener noreferrer"><i><img src="/icons/viber.svg" alt="" /></i><span>Viber</span><b>→</b></a>
+          <a className="contactButton instagram" href={LINKS.instagram} target="_blank" rel="noopener noreferrer"><i><img src="/icons/instagram.svg" alt="" /></i><span>Instagram</span><b>→</b></a>
         </section>
 
       </section>
