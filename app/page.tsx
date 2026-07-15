@@ -36,7 +36,7 @@ export default function Home() {
       </div>
 
       <header className="topbar reveal visible">
-        <a className="brand" href="#top" aria-label="На початок">Бонус <span>Банк</span></a>
+        <a className="brand" href="#top" aria-label="На початок">bonus<span>bank</span></a>
       </header>
 
       <section className="hero" id="top">
@@ -87,7 +87,7 @@ export default function Home() {
 
       </section>
 
-      <footer><span>© 2026 Бонус Банк</span><p>Інформаційна партнерська сторінка • 18+</p></footer>
+      <footer><span>© 2026 bonusbank</span><p>Інформаційна партнерська сторінка • 18+</p></footer>
     </main>
   );
 }
