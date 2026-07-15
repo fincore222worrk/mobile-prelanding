@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f6f0" />
+    <meta name="description" content="Короткий материал: главное за три минуты." />
+    <title>NOVA — новый материал</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phonePage">
+      <header class="topbar">
+        <span class="logo">NOVA<i></i></span>
+        <span class="adMark">РЕКЛАМА</span>
+      </header>
+
+      <article>
+        <div class="creative" aria-hidden="true">
+          <div class="glow glowOne"></div><div class="glow glowTwo"></div>
+          <span class="creativeLabel">ПРОСТО • БЫСТРО • ПОНЯТНО</span>
+          <div class="creativeCard">
+            <span>КРАТКИЙ ГАЙД</span><strong>3</strong><small>простых шага</small>
+            <div class="creativeLines"><i></i><i></i><i></i></div>
+          </div>
+          <div class="bubble bubbleLeft">✓ Легко начать</div>
+          <div class="bubble bubbleRight">3 мин</div>
+        </div>
+
+        <div class="content">
+          <p class="label">НОВЫЙ МАТЕРИАЛ</p>
+          <h1>Об этом простом способе сейчас говорят всё чаще</h1>
+          <p class="description">Мы собрали главное в коротком материале. Узнайте, почему этот подход привлёк столько внимания и как он работает.</p>
+          <ul>
+            <li><span>✓</span>Понятное объяснение</li>
+            <li><span>✓</span>Чтение займёт 3 минуты</li>
+            <li><span>✓</span>Доступ без регистрации</li>
+          </ul>
+
+          <a class="cta" data-offer href="#">УЗНАТЬ ПОДРОБНЕЕ<b>→</b></a>
+          <p class="socialTitle">ИЛИ НАПИШИТЕ НАМ</p>
+          <div class="socialButtons">
+            <a class="social telegram" href="https://t.me/username" target="_blank" rel="noopener noreferrer"><i>✈</i><span>Telegram</span></a>
+            <a class="social instagram" href="https://instagram.com/username" target="_blank" rel="noopener noreferrer"><i>◎</i><span>Instagram</span></a>
+            <a class="social viber" href="viber://chat?number=%2B00000000000"><i>☎</i><span>Viber</span></a>
+          </div>
+          <p class="safeText">Нажимая кнопку, вы перейдёте на страницу с подробной информацией</p>
+        </div>
+      </article>
+      <footer>Информационный материал • 18+</footer>
+    </main>
+
+    <script>
+      const offerUrl = "#"; // Вставьте сюда конечную ссылку.
+      if (offerUrl.startsWith("http")) {
+        const destination = new URL(offerUrl);
+        new URLSearchParams(location.search).forEach((value, key) => destination.searchParams.set(key, value));
+        document.querySelector("[data-offer]").href = destination.toString();
+      }
+    </script>
+  </body>
+</html>
