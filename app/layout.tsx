@@ -1,11 +1,30 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "bonusbank",
-  description: "Реферальні пропозиції ПУМБ та А-Банк з підтримкою на кожному етапі.",
-  icons: { icon: "/favicon.svg" },
-};
+const title = "bonusbank";
+const description = "Заробіток кожного місяця з реферальними пропозиціями ПУМБ та А-Банк.";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const incomingHeaders = await headers();
+  const host = incomingHeaders.get("x-forwarded-host") ?? incomingHeaders.get("host");
+  const protocol = incomingHeaders.get("x-forwarded-proto") ?? (host?.includes("localhost") ? "http" : "https");
+  const origin = host ? `${protocol}://${host}` : "https://nova-guide-mobile.artemshabalinman.chatgpt.site";
+  const imageUrl = new URL("/og.png", origin).toString();
+
+  return {
+    title,
+    description,
+    icons: { icon: "/favicon.svg" },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: "bonusbank — ПУМБ 2 000 ₴, А-Банк 500 ₴" }],
+    },
+    twitter: { card: "summary_large_image", title, description, images: [imageUrl] },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
