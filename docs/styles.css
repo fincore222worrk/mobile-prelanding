@@ -50,9 +50,12 @@ h1 { margin:0; font-size:clamp(46px,13.5vw,70px); line-height:.91; letter-spacin
 .contactButton>i { width:34px; height:34px; display:grid; place-items:center; border-radius:12px; background:#f0f5f2; font-style:normal; }
 .contactButton>i img { width:19px; height:19px; display:block; }
 .contactButton>b { justify-self:end; color:#6c8277; font-size:18px; }
-.contactButton.telegram { color:#fff; border-color:transparent; background:linear-gradient(135deg,#0c7546,#20a961); }
-.contactButton.telegram>i { background:rgba(255,255,255,.16); }
-.contactButton.telegram>b { color:#bfff9d; }
+.contactButton.telegram { color:#fff; border-color:transparent; background:linear-gradient(135deg,#2aabee,#229ed9); }
+.contactButton.viber { color:#fff; border-color:transparent; background:linear-gradient(135deg,#7360f2,#5b45d6); }
+.contactButton.instagram { color:#fff; border-color:transparent; background:linear-gradient(135deg,#f8a43b 0%,#ed5142 50%,#cf2d75 100%); }
+.contactButton.telegram>i,.contactButton.viber>i,.contactButton.instagram>i { background:rgba(255,255,255,.16); }
+.contactButton.viber>i img,.contactButton.instagram>i img { filter:brightness(0) invert(1); }
+.contactButton.telegram>b,.contactButton.viber>b,.contactButton.instagram>b { color:#fff; }
 footer { padding:20px max(22px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(22px,env(safe-area-inset-left)); display:flex; justify-content:space-between; gap:15px; position:relative; z-index:2; border-top:1px solid var(--line); color:#8a9a92; font-size:8px; }
 footer p { margin:0; text-align:right; }
 .reveal { opacity:0; transform:translateY(16px); transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1); }
