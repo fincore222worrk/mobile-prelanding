@@ -2,113 +2,87 @@
 
 import { useEffect, useState } from "react";
 
-// РЕДАКТИРОВАТЬ САЙТ НУЖНО ЗДЕСЬ: замените тексты и ссылку на свои.
-const SITE = {
+// Все основные настройки прокладки находятся здесь.
+// Замените тексты и вставьте конечную ссылку в offerUrl.
+const CONFIG = {
   brand: "NOVA",
-  eyebrow: "Полезный материал • 5 минут чтения",
-  title: "Простой подход, который помогает чувствовать себя лучше каждый день",
-  subtitle:
-    "Разбираем понятную систему из трёх шагов — без сложных терминов, жёстких ограничений и лишних обещаний.",
-  button: "Узнать подробности",
-  offerUrl: "#offer", // Вставьте сюда конечную ссылку, например: https://example.com
+  label: "НОВЫЙ МАТЕРИАЛ",
+  title: "Об этом простом способе сейчас говорят всё чаще",
+  description:
+    "Мы собрали главное в коротком материале. Узнайте, почему этот подход привлёк столько внимания и как он работает.",
+  points: ["Понятное объяснение", "Чтение займёт 3 минуты", "Доступ без регистрации"],
+  button: "УЗНАТЬ ПОДРОБНЕЕ",
+  offerUrl: "#", // Пример: https://example.com
+  telegramUrl: "https://t.me/username", // Замените username
+  instagramUrl: "https://instagram.com/username", // Замените username
+  viberUrl: "viber://chat?number=%2B00000000000", // Вставьте номер после %2B
 };
 
-const benefits = [
-  ["01", "Понятный старт", "Короткая инструкция, с которой легко начать уже сегодня."],
-  ["02", "Удобный формат", "Подход легко встроить в привычный распорядок дня."],
-  ["03", "Фокус на главном", "Только практичные рекомендации без информационного шума."],
-];
-
-const reviews = [
-  ["Марина, 34", "«Наконец-то всё объяснено простыми словами. Прочитала за несколько минут и сразу поняла, с чего начать.»"],
-  ["Алексей, 41", "«Понравилось, что нет сложных схем. Всё коротко, спокойно и по делу.»"],
-];
-
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [offerHref, setOfferHref] = useState(SITE.offerUrl);
+  const [offerHref, setOfferHref] = useState(CONFIG.offerUrl);
 
   useEffect(() => {
-    if (!SITE.offerUrl.startsWith("http")) return;
-    const destination = new URL(SITE.offerUrl);
-    const incoming = new URLSearchParams(window.location.search);
-    incoming.forEach((value, key) => destination.searchParams.set(key, value));
+    if (!CONFIG.offerUrl.startsWith("http")) return;
+    const destination = new URL(CONFIG.offerUrl);
+    new URLSearchParams(window.location.search).forEach((value, key) => {
+      destination.searchParams.set(key, value);
+    });
     setOfferHref(destination.toString());
   }, []);
 
   return (
-    <main>
-      <header className="header">
-        <a className="logo" href="#top" aria-label="На главную">{SITE.brand}<i /></a>
-        <button className="menuButton" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Открыть меню">
-          <span /><span />
-        </button>
-        <nav className={menuOpen ? "nav open" : "nav"}>
-          <a href="#method" onClick={() => setMenuOpen(false)}>Как это работает</a>
-          <a href="#stories" onClick={() => setMenuOpen(false)}>Отзывы</a>
-          <a href="#faq" onClick={() => setMenuOpen(false)}>Вопросы</a>
-        </nav>
+    <main className="phonePage">
+      <header className="topbar">
+        <span className="logo">{CONFIG.brand}<i /></span>
+        <span className="adMark">РЕКЛАМА</span>
       </header>
 
-      <section className="hero" id="top">
-        <div className="heroCopy">
-          <p className="eyebrow"><span />{SITE.eyebrow}</p>
-          <h1>{SITE.title}</h1>
-          <p className="lead">{SITE.subtitle}</p>
-          <a className="primaryButton" href={offerHref} id="offer">{SITE.button}<b>→</b></a>
-          <p className="microcopy">Бесплатно • Без регистрации • Доступ сразу</p>
-        </div>
-        <div className="heroVisual" aria-hidden="true">
-          <div className="orb orbOne" /><div className="orb orbTwo" />
-          <div className="phoneCard">
-            <div className="cardTop"><span>ВАШ ПЛАН</span><em>01 / 03</em></div>
-            <div className="dial"><strong>5</strong><small>минут в день</small></div>
-            <div className="progress"><i /><i /><i /></div>
-            <p>Небольшие шаги.<br />Заметные перемены.</p>
+      <article>
+        <div className="creative" aria-hidden="true">
+          <div className="glow glowOne" />
+          <div className="glow glowTwo" />
+          <span className="creativeLabel">ПРОСТО • БЫСТРО • ПОНЯТНО</span>
+          <div className="creativeCard">
+            <span>КРАТКИЙ ГАЙД</span>
+            <strong>3</strong>
+            <small>простых шага</small>
+            <div className="creativeLines"><i /><i /><i /></div>
           </div>
-          <div className="floatNote noteOne">✓ Легко начать</div>
-          <div className="floatNote noteTwo">★ 4.9 из 5</div>
+          <div className="bubble bubbleLeft">✓ Легко начать</div>
+          <div className="bubble bubbleRight">3 мин</div>
         </div>
-      </section>
 
-      <section className="trustBar">
-        <span>ПОНЯТНО</span><i /> <span>ПРАКТИЧНО</span><i /> <span>ДОСТУПНО</span>
-      </section>
+        <div className="content">
+          <p className="label">{CONFIG.label}</p>
+          <h1>{CONFIG.title}</h1>
+          <p className="description">{CONFIG.description}</p>
 
-      <section className="section method" id="method">
-        <p className="sectionKicker">СИСТЕМА ИЗ ТРЁХ ШАГОВ</p>
-        <div className="sectionHeading">
-          <h2>Меньше сложности.<br />Больше ясности.</h2>
-          <p>Мы собрали основные идеи в короткую последовательность, чтобы вам не пришлось тратить часы на поиск информации.</p>
+          <ul>
+            {CONFIG.points.map((point) => (
+              <li key={point}><span>✓</span>{point}</li>
+            ))}
+          </ul>
+
+          <a className="cta" href={offerHref}>
+            {CONFIG.button}<b>→</b>
+          </a>
+          <p className="socialTitle">ИЛИ НАПИШИТЕ НАМ</p>
+          <div className="socialButtons">
+            <a className="social telegram" href={CONFIG.telegramUrl} target="_blank" rel="noopener noreferrer">
+              <i>✈</i><span>Telegram</span>
+            </a>
+            <a className="social instagram" href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer">
+              <i>◎</i><span>Instagram</span>
+            </a>
+            <a className="social viber" href={CONFIG.viberUrl}>
+              <i>☎</i><span>Viber</span>
+            </a>
+          </div>
+          <p className="safeText">Нажимая кнопку, вы перейдёте на страницу с подробной информацией</p>
         </div>
-        <div className="benefitGrid">
-          {benefits.map(([number, title, text]) => <article key={number}>
-            <span>{number}</span><h3>{title}</h3><p>{text}</p>
-          </article>)}
-        </div>
-      </section>
+      </article>
 
-      <section className="section stories" id="stories">
-        <div><p className="sectionKicker">ИСТОРИИ ЧИТАТЕЛЕЙ</p><h2>Просто попробовать.<br />Легко продолжать.</h2></div>
-        <div className="reviewList">
-          {reviews.map(([name, text]) => <blockquote key={name}><div className="stars">★★★★★</div><p>{text}</p><footer>{name}<span>Проверенный читатель</span></footer></blockquote>)}
-        </div>
-      </section>
-
-      <section className="section faq" id="faq">
-        <p className="sectionKicker">ОТВЕЧАЕМ КОРОТКО</p><h2>Частые вопросы</h2>
-        <details><summary>Сколько времени займёт знакомство с материалом?<b>+</b></summary><p>Основную часть можно прочитать примерно за пять минут. Возвращайтесь к ней в любое удобное время.</p></details>
-        <details><summary>Подойдёт ли это новичку?<b>+</b></summary><p>Да. Материал написан простым языком и не требует предварительной подготовки.</p></details>
-        <details><summary>Нужно ли регистрироваться?<b>+</b></summary><p>Нет. Нажмите кнопку, чтобы сразу перейти к подробной информации.</p></details>
-      </section>
-
-      <section className="finalCta">
-        <p className="sectionKicker">ГОТОВЫ НАЧАТЬ?</p>
-        <h2>Один небольшой шаг<br />может изменить многое.</h2>
-        <a className="primaryButton light" href={offerHref}>{SITE.button}<b>→</b></a>
-      </section>
-
-      <footer className="footer"><a className="logo" href="#top">{SITE.brand}<i /></a><p>Информационный материал. Результаты могут отличаться.</p><span>© 2026</span></footer>
+      <footer>Информационный материал • 18+</footer>
     </main>
   );
 }

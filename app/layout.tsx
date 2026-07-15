@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NOVA — простая система на каждый день",
-  description: "Практичный материал: понятный подход и три простых шага.",
+  title: "NOVA — новый материал",
+  description: "Короткий материал: главное за три минуты.",
   icons: { icon: "/favicon.svg" },
 };
 
