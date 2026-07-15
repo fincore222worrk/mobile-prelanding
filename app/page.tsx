@@ -4,9 +4,9 @@ import { useEffect } from "react";
 
 // Замените заглушки настоящими ссылками, когда они будут готовы.
 const LINKS = {
-  telegram: "#",
-  viber: "#",
-  instagram: "#",
+  telegram: "https://t.me/viktor_emil",
+  viber: "https://viber.me/380635861629",
+  instagram: "https://www.instagram.com/vanya335e?igsh=cTIzdHl6dGwwZGYw",
 };
 
 const features = [
@@ -74,9 +74,9 @@ export default function Home() {
 
         <section className="contacts reveal" aria-labelledby="contact-title">
           <p id="contact-title">ОБЕРІТЬ ЗРУЧНИЙ МЕСЕНДЖЕР</p>
-          <a className="contactButton telegram" href={LINKS.telegram}><i>↗</i><span>Telegram</span><b>→</b></a>
-          <a className="contactButton viber" href={LINKS.viber}><i>☎</i><span>Viber</span><b>→</b></a>
-          <a className="contactButton instagram" href={LINKS.instagram}><i>◎</i><span>Instagram</span><b>→</b></a>
+          <a className="contactButton telegram" href={LINKS.telegram} target="_blank" rel="noopener noreferrer"><i>↗</i><span>Telegram</span><b>→</b></a>
+          <a className="contactButton viber" href={LINKS.viber} target="_blank" rel="noopener noreferrer"><i>☎</i><span>Viber</span><b>→</b></a>
+          <a className="contactButton instagram" href={LINKS.instagram} target="_blank" rel="noopener noreferrer"><i>◎</i><span>Instagram</span><b>→</b></a>
         </section>
 
       </section>
