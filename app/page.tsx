@@ -42,7 +42,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="intro reveal visible">
           <p className="eyebrow"><span />ЗАРОБЛЯЙ РАЗОМ З НАМИ</p>
-          <h1>Реферальна<br />програма</h1>
+          <h1>Заробіток кожного<br />місяця</h1>
           <p className="subtitle">Щомісячна оплата. Швидко, просто та без зайвих складнощів.</p>
         </div>
 
