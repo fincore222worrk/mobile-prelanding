@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "REF+",
+  title: "Бонус Банк",
   description: "Реферальні пропозиції ПУМБ та А-Банк з підтримкою на кожному етапі.",
   icons: { icon: "/favicon.svg" },
 };
