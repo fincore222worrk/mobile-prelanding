@@ -1,88 +1,87 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-// Все основные настройки прокладки находятся здесь.
-// Замените тексты и вставьте конечную ссылку в offerUrl.
-const CONFIG = {
-  brand: "NOVA",
-  label: "НОВЫЙ МАТЕРИАЛ",
-  title: "Об этом простом способе сейчас говорят всё чаще",
-  description:
-    "Мы собрали главное в коротком материале. Узнайте, почему этот подход привлёк столько внимания и как он работает.",
-  points: ["Понятное объяснение", "Чтение займёт 3 минуты", "Доступ без регистрации"],
-  button: "УЗНАТЬ ПОДРОБНЕЕ",
-  offerUrl: "#", // Пример: https://example.com
-  telegramUrl: "https://t.me/username", // Замените username
-  instagramUrl: "https://instagram.com/username", // Замените username
-  viberUrl: "viber://chat?number=%2B00000000000", // Вставьте номер после %2B
+// Замените заглушки настоящими ссылками, когда они будут готовы.
+const LINKS = {
+  telegram: "#",
+  viber: "#",
+  instagram: "#",
 };
 
-export default function Home() {
-  const [offerHref, setOfferHref] = useState(CONFIG.offerUrl);
+const features = [
+  ["✓", "Зрозумілі умови"],
+  ["↗", "Швидкий зв’язок"],
+  ["⌾", "Захист даних"],
+];
 
+export default function Home() {
   useEffect(() => {
-    if (!CONFIG.offerUrl.startsWith("http")) return;
-    const destination = new URL(CONFIG.offerUrl);
-    new URLSearchParams(window.location.search).forEach((value, key) => {
-      destination.searchParams.set(key, value);
-    });
-    setOfferHref(destination.toString());
+    const items = document.querySelectorAll<HTMLElement>(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("visible")),
+      { threshold: 0.12 },
+    );
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <main className="phonePage">
-      <header className="topbar">
-        <span className="logo">{CONFIG.brand}<i /></span>
-        <span className="adMark">РЕКЛАМА</span>
+    <main className="pageShell">
+      <div className="decor" aria-hidden="true">
+        <i className="mist mistOne" /><i className="mist mistTwo" />
+        <i className="ring ringOne" /><i className="ring ringTwo" />
+        <i className="dotGrid dotOne" /><i className="dotGrid dotTwo" />
+      </div>
+
+      <header className="topbar reveal visible">
+        <a className="brand" href="#top" aria-label="На початок">REF<span>+</span></a>
+        <span className="programTag">ПАРТНЕРСЬКА ПРОГРАМА</span>
       </header>
 
-      <article>
-        <div className="creative" aria-hidden="true">
-          <div className="glow glowOne" />
-          <div className="glow glowTwo" />
-          <span className="creativeLabel">ПРОСТО • БЫСТРО • ПОНЯТНО</span>
-          <div className="creativeCard">
-            <span>КРАТКИЙ ГАЙД</span>
-            <strong>3</strong>
-            <small>простых шага</small>
-            <div className="creativeLines"><i /><i /><i /></div>
-          </div>
-          <div className="bubble bubbleLeft">✓ Легко начать</div>
-          <div className="bubble bubbleRight">3 мин</div>
+      <section className="hero" id="top">
+        <div className="intro reveal visible">
+          <p className="eyebrow"><span />ЗАРОБЛЯЙ РАЗОМ З НАМИ</p>
+          <h1>Реферальна<br />програма</h1>
+          <p className="subtitle">Щомісячна оплата. Швидко, просто та без зайвих складнощів.</p>
         </div>
 
-        <div className="content">
-          <p className="label">{CONFIG.label}</p>
-          <h1>{CONFIG.title}</h1>
-          <p className="description">{CONFIG.description}</p>
+        <div className="offers reveal">
+          <article className="offerCard mainOffer">
+            <div><span className="bankName">ПУМБ</span><small>реферальна винагорода</small></div>
+            <p><strong>2 000</strong><b>₴</b></p>
+          </article>
+          <article className="offerCard secondOffer">
+            <div><span className="bankName">А-Банк</span><small>реферальна винагорода</small></div>
+            <p><strong>500</strong><b>₴</b></p>
+          </article>
+        </div>
 
+        <div className="featureGrid reveal">
+          {features.map(([icon, label]) => (
+            <article className="featureCard" key={label}><i>{icon}</i><span>{label}</span></article>
+          ))}
+        </div>
+
+        <article className="benefitCard reveal">
+          <div className="benefitHead"><span>ВАШІ ПЕРЕВАГИ</span><i>03</i></div>
           <ul>
-            {CONFIG.points.map((point) => (
-              <li key={point}><span>✓</span>{point}</li>
-            ))}
+            <li><i>✓</i><span>Пояснюємо умови програми</span></li>
+            <li><i>✓</i><span>Допомагаємо на кожному етапі</span></li>
+            <li><i>✓</i><span>Підтримка без вихідних</span></li>
           </ul>
+        </article>
 
-          <a className="cta" href={offerHref}>
-            {CONFIG.button}<b>→</b>
-          </a>
-          <p className="socialTitle">ИЛИ НАПИШИТЕ НАМ</p>
-          <div className="socialButtons">
-            <a className="social telegram" href={CONFIG.telegramUrl} target="_blank" rel="noopener noreferrer">
-              <i>✈</i><span>Telegram</span>
-            </a>
-            <a className="social instagram" href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer">
-              <i>◎</i><span>Instagram</span>
-            </a>
-            <a className="social viber" href={CONFIG.viberUrl}>
-              <i>☎</i><span>Viber</span>
-            </a>
-          </div>
-          <p className="safeText">Нажимая кнопку, вы перейдёте на страницу с подробной информацией</p>
-        </div>
-      </article>
+        <section className="contacts reveal" aria-labelledby="contact-title">
+          <p id="contact-title">ОБЕРІТЬ ЗРУЧНИЙ МЕСЕНДЖЕР</p>
+          <a className="contactButton telegram" href={LINKS.telegram}><i>↗</i><span>Telegram</span><b>→</b></a>
+          <a className="contactButton viber" href={LINKS.viber}><i>☎</i><span>Viber</span><b>→</b></a>
+          <a className="contactButton instagram" href={LINKS.instagram}><i>◎</i><span>Instagram</span><b>→</b></a>
+        </section>
 
-      <footer>Информационный материал • 18+</footer>
+      </section>
+
+      <footer><span>© 2026 REF+</span><p>Інформаційна партнерська сторінка • 18+</p></footer>
     </main>
   );
 }

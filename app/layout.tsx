@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NOVA — новый материал",
-  description: "Короткий материал: главное за три минуты.",
+  title: "REF+ — реферальна програма",
+  description: "Реферальні пропозиції ПУМБ та А-Банк з підтримкою на кожному етапі.",
   icons: { icon: "/favicon.svg" },
 };
 
