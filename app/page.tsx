@@ -2,28 +2,19 @@
 
 import { useEffect, useState } from "react";
 
-// Все основные настройки прокладки находятся здесь.
-// Замените тексты и вставьте конечную ссылку в offerUrl.
-const CONFIG = {
-  brand: "NOVA",
-  label: "НОВЫЙ МАТЕРИАЛ",
-  title: "Об этом простом способе сейчас говорят всё чаще",
-  description:
-    "Мы собрали главное в коротком материале. Узнайте, почему этот подход привлёк столько внимания и как он работает.",
-  points: ["Понятное объяснение", "Чтение займёт 3 минуты", "Доступ без регистрации"],
-  button: "УЗНАТЬ ПОДРОБНЕЕ",
-  offerUrl: "#", // Пример: https://example.com
-  telegramUrl: "https://t.me/username", // Замените username
-  instagramUrl: "https://instagram.com/username", // Замените username
-  viberUrl: "viber://chat?number=%2B00000000000", // Вставьте номер после %2B
+const LINKS = {
+  offer: "#",
+  telegram: "https://t.me/username",
+  instagram: "https://instagram.com/username",
+  viber: "viber://chat?number=%2B00000000000",
 };
 
 export default function Home() {
-  const [offerHref, setOfferHref] = useState(CONFIG.offerUrl);
+  const [offerHref, setOfferHref] = useState(LINKS.offer);
 
   useEffect(() => {
-    if (!CONFIG.offerUrl.startsWith("http")) return;
-    const destination = new URL(CONFIG.offerUrl);
+    if (!LINKS.offer.startsWith("http")) return;
+    const destination = new URL(LINKS.offer);
     new URLSearchParams(window.location.search).forEach((value, key) => {
       destination.searchParams.set(key, value);
     });
@@ -31,58 +22,13 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="phonePage">
-      <header className="topbar">
-        <span className="logo">{CONFIG.brand}<i /></span>
-        <span className="adMark">РЕКЛАМА</span>
-      </header>
-
-      <article>
-        <div className="creative" aria-hidden="true">
-          <div className="glow glowOne" />
-          <div className="glow glowTwo" />
-          <span className="creativeLabel">ПРОСТО • БЫСТРО • ПОНЯТНО</span>
-          <div className="creativeCard">
-            <span>КРАТКИЙ ГАЙД</span>
-            <strong>3</strong>
-            <small>простых шага</small>
-            <div className="creativeLines"><i /><i /><i /></div>
-          </div>
-          <div className="bubble bubbleLeft">✓ Легко начать</div>
-          <div className="bubble bubbleRight">3 мин</div>
-        </div>
-
-        <div className="content">
-          <p className="label">{CONFIG.label}</p>
-          <h1>{CONFIG.title}</h1>
-          <p className="description">{CONFIG.description}</p>
-
-          <ul>
-            {CONFIG.points.map((point) => (
-              <li key={point}><span>✓</span>{point}</li>
-            ))}
-          </ul>
-
-          <a className="cta" href={offerHref}>
-            {CONFIG.button}<b>→</b>
-          </a>
-          <p className="socialTitle">ИЛИ НАПИШИТЕ НАМ</p>
-          <div className="socialButtons">
-            <a className="social telegram" href={CONFIG.telegramUrl} target="_blank" rel="noopener noreferrer">
-              <i>✈</i><span>Telegram</span>
-            </a>
-            <a className="social instagram" href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer">
-              <i>◎</i><span>Instagram</span>
-            </a>
-            <a className="social viber" href={CONFIG.viberUrl}>
-              <i>☎</i><span>Viber</span>
-            </a>
-          </div>
-          <p className="safeText">Нажимая кнопку, вы перейдёте на страницу с подробной информацией</p>
-        </div>
-      </article>
-
-      <footer>Информационный материал • 18+</footer>
+    <main className="linksPage">
+      <nav className="linkButtons" aria-label="Ссылки для перехода">
+        <a className="linkButton primary" href={offerHref}>Узнать подробнее <span>→</span></a>
+        <a className="linkButton telegram" href={LINKS.telegram} target="_blank" rel="noopener noreferrer">Telegram <span>→</span></a>
+        <a className="linkButton instagram" href={LINKS.instagram} target="_blank" rel="noopener noreferrer">Instagram <span>→</span></a>
+        <a className="linkButton viber" href={LINKS.viber}>Viber <span>→</span></a>
+      </nav>
     </main>
   );
 }
