@@ -1,72 +1,20 @@
 <!doctype html>
-<html lang="uk">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover" />
-    <meta name="theme-color" content="#fbfdfb" />
-    <meta name="description" content="Заробіток кожного місяця з реферальними пропозиціями ПУМБ та А-Банк." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="bonusbank" />
-    <meta property="og:description" content="Заробіток кожного місяця з реферальними пропозиціями ПУМБ та А-Банк." />
-    <meta property="og:image" content="https://fincore222worrk.github.io/mobile-prelanding/og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="bonusbank — ПУМБ 2 000 ₴, А-Банк 500 ₴" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="bonusbank" />
-    <meta name="twitter:description" content="Заробіток кожного місяця з реферальними пропозиціями ПУМБ та А-Банк." />
-    <meta name="twitter:image" content="https://fincore222worrk.github.io/mobile-prelanding/og.png" />
-    <title>bonusbank</title>
+    <meta name="theme-color" content="#edf5f0" />
+    <meta name="description" content="Выберите удобный мессенджер для связи." />
+    <title>Связаться с нами</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="pageShell">
-      <div class="decor" aria-hidden="true"><i class="mist mistOne"></i><i class="mist mistTwo"></i><i class="ring ringOne"></i><i class="ring ringTwo"></i><i class="dotGrid dotOne"></i><i class="dotGrid dotTwo"></i></div>
-      <header class="topbar reveal visible"><a class="brand" href="#top">bonus<span>bank</span></a></header>
-
-      <section class="hero" id="top">
-        <div class="intro reveal visible">
-          <p class="eyebrow"><span></span>ЗАРОБЛЯЙ РАЗОМ З НАМИ</p>
-          <h1>Заробіток кожного<br />місяця</h1>
-          <p class="subtitle">Щомісячна оплата. Швидко, просто та без зайвих складнощів.</p>
-        </div>
-
-        <div class="offers reveal">
-          <article class="offerCard mainOffer"><div><span class="bankName">ПУМБ</span></div><p><strong>2 000</strong><b>₴</b></p></article>
-          <article class="offerCard secondOffer"><div><span class="bankName">А-Банк</span></div><p><strong>500</strong><b>₴</b></p></article>
-        </div>
-
-        <div class="featureGrid reveal">
-          <article class="featureCard"><i>✓</i><span>Зрозумілі умови</span></article>
-          <article class="featureCard"><i>↗</i><span>Швидкий зв’язок</span></article>
-          <article class="featureCard"><i>⌾</i><span>Захист даних</span></article>
-        </div>
-
-        <article class="benefitCard reveal">
-          <div class="benefitHead"><span>ВАШІ ПЕРЕВАГИ</span><i>03</i></div>
-          <ul><li><i>✓</i><span>Пояснюємо умови програми</span></li><li><i>✓</i><span>Допомагаємо на кожному етапі</span></li><li><i>✓</i><span>Підтримка без вихідних</span></li></ul>
-        </article>
-
-        <a class="reviewsButton reveal" href="https://t.me/+h0ymje-qAfsyMzky" target="_blank" rel="noopener noreferrer" aria-label="Переглянути відгуки в Telegram">
-          <i><img src="./icons/telegram.svg" alt="" /></i>
-          <span><small>ВІДГУКИ КЛІЄНТІВ</small><strong>Дивитися в Telegram</strong></span>
-          <b>→</b>
-        </a>
-
-        <section class="contacts reveal" aria-labelledby="contact-title">
-          <p id="contact-title">ОБЕРІТЬ ЗРУЧНИЙ МЕСЕНДЖЕР</p>
-          <a class="contactButton telegram" href="https://t.me/viktor_emil" target="_blank" rel="noopener noreferrer"><i><img src="./icons/telegram.svg" alt="" /></i><span>Telegram</span><b>→</b></a>
-          <a class="contactButton viber" href="https://viber.me/380635861629" target="_blank" rel="noopener noreferrer"><i><img src="./icons/viber.svg" alt="" /></i><span>Viber</span><b>→</b></a>
-          <a class="contactButton instagram" href="https://www.instagram.com/vanya335e?igsh=cTIzdHl6dGwwZGYw" target="_blank" rel="noopener noreferrer"><i><img src="./icons/instagram.svg" alt="" /></i><span>Instagram</span><b>→</b></a>
-        </section>
-      </section>
-      <footer><span>© 2026 bonusbank</span><p>Інформаційна партнерська сторінка • 18+</p></footer>
+    <main class="pageShell" aria-label="Выбор мессенджера">
+      <nav class="contacts" aria-label="Связаться с нами">
+        <a class="contactButton telegram" href="https://t.me/viktor_emil" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram"><i><img src="./icons/telegram.svg" alt="" /></i><span>Telegram</span><b>→</b></a>
+        <a class="contactButton viber" href="https://viber.me/380635861629" target="_blank" rel="noopener noreferrer" aria-label="Написать в Viber"><i><img src="./icons/viber.svg" alt="" /></i><span>Viber</span><b>→</b></a>
+        <a class="contactButton instagram" href="https://www.instagram.com/vanya335e/" target="_blank" rel="noopener noreferrer" aria-label="Написать в Instagram"><i><img src="./icons/instagram.svg" alt="" /></i><span>Instagram</span><b>→</b></a>
+      </nav>
     </main>
-    <script>
-      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      }), { threshold: 0.12 });
-      document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
-    </script>
   </body>
 </html>
